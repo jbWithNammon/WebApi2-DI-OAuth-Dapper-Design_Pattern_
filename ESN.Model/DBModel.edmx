@@ -1,0 +1,2286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NG5Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="CourseLocationID" Type="int" />
+          <Property Name="CourseType" Type="nchar" MaxLength="1" />
+          <Property Name="Name_L1" Type="nvarchar" MaxLength="250" />
+          <Property Name="Name_L2" Type="nvarchar" MaxLength="250" />
+          <Property Name="Name_L3" Type="nvarchar" MaxLength="250" />
+          <Property Name="Name_L4" Type="nvarchar" MaxLength="250" />
+          <Property Name="Object_L1" Type="nvarchar(max)" />
+          <Property Name="Object_L2" Type="nvarchar(max)" />
+          <Property Name="Object_L3" Type="nvarchar(max)" />
+          <Property Name="Object_L4" Type="nvarchar(max)" />
+          <Property Name="Intro_L1" Type="nvarchar(max)" />
+          <Property Name="Intro_L2" Type="nvarchar(max)" />
+          <Property Name="Intro_L3" Type="nvarchar(max)" />
+          <Property Name="Intro_L4" Type="nvarchar(max)" />
+          <Property Name="Target_L1" Type="nvarchar(max)" />
+          <Property Name="Target_L2" Type="nvarchar(max)" />
+          <Property Name="Target_L3" Type="nvarchar(max)" />
+          <Property Name="Target_L4" Type="nvarchar(max)" />
+          <Property Name="Criteria_L1" Type="nvarchar(max)" />
+          <Property Name="Criteria_L2" Type="nvarchar(max)" />
+          <Property Name="Criteria_L3" Type="nvarchar(max)" />
+          <Property Name="Criteria_L4" Type="nvarchar(max)" />
+          <Property Name="Previous" Type="int" />
+          <Property Name="EffDate" Type="datetime" />
+          <Property Name="ExpDate" Type="datetime" />
+          <Property Name="CourseImage" Type="nvarchar" MaxLength="250" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CourseAssign">
+          <Key>
+            <PropertyRef Name="AssignID" />
+          </Key>
+          <Property Name="AssignID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseID" Type="int" />
+          <Property Name="DeptID" Type="int" />
+          <Property Name="DivID" Type="int" />
+          <Property Name="PositionID" Type="int" />
+          <Property Name="WorkID" Type="int" />
+          <Property Name="EmpID" Type="int" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CourseContent">
+          <Key>
+            <PropertyRef Name="ContentID" />
+          </Key>
+          <Property Name="ContentID" Type="int" Nullable="false" />
+          <Property Name="CourseListID" Type="int" />
+          <Property Name="ContentTime" Type="int" />
+          <Property Name="IsActive" Type="nchar" MaxLength="1" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CourseExam">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseExamSetID" Type="int" />
+          <Property Name="ExamID" Type="int" />
+          <Property Name="QuestionID" Type="int" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="CreateDate" Type="date" />
+          <Property Name="UpdateBy" Type="int" />
+          <Property Name="UpdateDate" Type="date" />
+        </EntityType>
+        <EntityType Name="CourseExamSetting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseListID" Type="int" />
+          <Property Name="ExamTypeID" Type="int" />
+          <Property Name="NumberingID" Type="int" />
+          <Property Name="ExamTime" Type="int" />
+          <Property Name="Criteria" Type="int" />
+          <Property Name="QuestionType" Type="nchar" MaxLength="1" />
+          <Property Name="QuestionQty" Type="int" />
+          <Property Name="TotalScore" Type="float" />
+          <Property Name="BeginnerQty" Type="int" />
+          <Property Name="IntermediatesQty" Type="int" />
+          <Property Name="ExpertsQty" Type="int" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="CreateDate" Type="date" />
+          <Property Name="UpdateBy" Type="int" />
+          <Property Name="UpdateDate" Type="date" />
+        </EntityType>
+        <EntityType Name="CourseList">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseID" Type="int" />
+          <Property Name="TopicSeq" Type="int" />
+          <Property Name="TopicName_L1" Type="nvarchar" MaxLength="100" />
+          <Property Name="TopicName_L2" Type="nvarchar" MaxLength="100" />
+          <Property Name="TopicName_L3" Type="nvarchar" MaxLength="100" />
+          <Property Name="TopicName_L4" Type="nvarchar" MaxLength="100" />
+          <Property Name="ContentID" Type="int" />
+          <Property Name="MediaTypeID" Type="int" />
+          <Property Name="ExamTypeID" Type="int" />
+          <Property Name="IsActive" Type="nchar" MaxLength="1" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="EmpCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="FirstName_L1" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName_L2" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName_L3" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName_L4" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName_L1" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName_L2" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName_L3" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName_L4" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeptID" Type="int" />
+          <Property Name="DivID" Type="int" />
+          <Property Name="PositionID" Type="nvarchar" MaxLength="10" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="50" />
+          <Property Name="StartWorkDate" Type="datetime" />
+          <Property Name="IsActive" Type="nchar" MaxLength="1" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Evaluation">
+          <Key>
+            <PropertyRef Name="EvaID" />
+          </Key>
+          <Property Name="EvaID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CourseListID" Type="nvarchar" MaxLength="10" />
+          <Property Name="QuestionQTY" Type="int" />
+          <Property Name="AnswerQty" Type="int" />
+          <Property Name="IsActive" Type="nchar" MaxLength="1" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="10" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="10" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ExamAnswer">
+          <Key>
+            <PropertyRef Name="AnsID" />
+          </Key>
+          <Property Name="AnsID" Type="int" Nullable="false" />
+          <Property Name="QuestionID" Type="int" />
+          <Property Name="AnsNo" Type="int" />
+          <Property Name="AnsText_L1" Type="nvarchar" MaxLength="250" />
+          <Property Name="AnsText_L2" Type="nvarchar" MaxLength="250" />
+          <Property Name="AnsText_L3" Type="nvarchar" MaxLength="250" />
+          <Property Name="AnsText_L4" Type="nvarchar" MaxLength="250" />
+          <Property Name="AnsCorrect" Type="nchar" MaxLength="1" />
+          <Property Name="AnsKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="AnsSensitive" Type="nchar" MaxLength="1" />
+          <Property Name="AnsPosition" Type="int" />
+          <Property Name="AnsScore" Type="nchar" MaxLength="10" />
+          <Property Name="IsActive" Type="nchar" MaxLength="1" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Examination">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title_L1" Type="nvarchar" MaxLength="250" />
+          <Property Name="Title_L2" Type="nvarchar" MaxLength="250" />
+          <Property Name="Title_L3" Type="nvarchar" MaxLength="250" />
+          <Property Name="Title_L4" Type="nvarchar" MaxLength="250" />
+          <Property Name="ExamTypeID" Type="int" />
+          <Property Name="CourseListID" Type="int" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="10" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="10" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ExaminationDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ExamHID" Type="int" />
+          <Property Name="QuestionQTY" Type="int" />
+          <Property Name="QuestionRandom" Type="nchar" MaxLength="1" />
+          <Property Name="AnswerQTY" Type="int" />
+          <Property Name="AnswerRandom" Type="nchar" MaxLength="1" />
+          <Property Name="AnsTypeID" Type="nvarchar" MaxLength="10" />
+          <Property Name="ExamTime" Type="nchar" MaxLength="10" />
+          <Property Name="PassCriteria" Type="nchar" MaxLength="10" />
+          <Property Name="ActiveStatus" Type="nchar" MaxLength="1" />
+          <Property Name="TotalScore" Type="nchar" MaxLength="10" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="10" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="10" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MediaStorage">
+          <Key>
+            <PropertyRef Name="MediaID" />
+          </Key>
+          <Property Name="MediaID" Type="int" Nullable="false" />
+          <Property Name="MediaType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Path" Type="nvarchar" MaxLength="100" />
+          <Property Name="RefProcessCode" Type="int" />
+          <Property Name="RefType" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="MSAnswerType">
+          <Key>
+            <PropertyRef Name="AnsTypeID" />
+          </Key>
+          <Property Name="AnsTypeID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AnsTypeName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MSCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_L1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L4" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description_L1" Type="nvarchar" MaxLength="250" />
+          <Property Name="Description_L2" Type="nvarchar" MaxLength="250" />
+          <Property Name="Description_L3" Type="nvarchar" MaxLength="250" />
+          <Property Name="Description_L4" Type="nvarchar" MaxLength="250" />
+          <Property Name="EffDate" Type="datetime" />
+          <Property Name="ExpDate" Type="datetime" />
+          <Property Name="Priority" Type="nchar" MaxLength="10" />
+          <Property Name="Icon" Type="nvarchar" MaxLength="20" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MSContentType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name_L1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L4" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="MSCourseLocation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_L1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L4" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MSCourseSort">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name_L1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L4" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="MSCourseType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_L1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L4" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MSDataLanguage">
+          <Key>
+            <PropertyRef Name="LID" />
+          </Key>
+          <Property Name="LID" Type="int" Nullable="false" />
+          <Property Name="IDRef" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TableName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ColumnName" Type="nvarchar" MaxLength="50" />
+          <Property Name="L1" Type="nvarchar(max)" />
+          <Property Name="L2" Type="nvarchar(max)" />
+          <Property Name="L3" Type="nvarchar(max)" />
+          <Property Name="L4" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="MSDepartment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_L1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L4" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MSDivision">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeptID" Type="int" />
+          <Property Name="Name_L1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L4" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MSExamLevel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="Name_L1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L4" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="MSExamType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_L1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L4" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="MSMediaType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_L1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L4" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="MSPosition">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DivID" Type="int" />
+          <Property Name="Name_L1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L4" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MSProgressStatus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name_L1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L4" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="MSWorkExperience">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_L1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_L4" Type="nvarchar" MaxLength="50" />
+          <Property Name="TimeStart" Type="int" />
+          <Property Name="TimeStartUnit" Type="nvarchar" MaxLength="5" />
+          <Property Name="TimeEnd" Type="int" />
+          <Property Name="TimeEndUnit" Type="nvarchar" MaxLength="5" />
+          <Property Name="IsActive" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+          <Property Name="ExamID" Type="nvarchar" MaxLength="10" />
+          <Property Name="QusNo" Type="int" />
+          <Property Name="QusText_L1" Type="nvarchar" MaxLength="250" />
+          <Property Name="QusText_L2" Type="nvarchar" MaxLength="250" />
+          <Property Name="QusText_L3" Type="nvarchar" MaxLength="250" />
+          <Property Name="QusText_L4" Type="nvarchar" MaxLength="250" />
+          <Property Name="QusScore" Type="float" />
+          <Property Name="QusLevel" Type="nchar" MaxLength="1" />
+          <Property Name="IsActive" Type="nchar" MaxLength="1" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TextResource">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Module" Type="nvarchar" MaxLength="50" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="L1Value" Type="nvarchar" MaxLength="500" />
+          <Property Name="L2Value" Type="nvarchar" MaxLength="500" />
+          <Property Name="L3Value" Type="nvarchar" MaxLength="500" />
+          <Property Name="L4Value" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="UserHistorical">
+          <Key>
+            <PropertyRef Name="UserHisID" />
+          </Key>
+          <Property Name="UserHisID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="IPAddress" Type="nvarchar" MaxLength="20" />
+          <Property Name="TopScore" Type="float" />
+          <Property Name="Score" Type="float" />
+          <Property Name="CourseListID" Type="int" />
+          <Property Name="LearnTime" Type="datetime" />
+          <Property Name="IsActive" Type="nchar" MaxLength="1" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserManagement">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="EmpID" Type="nvarchar" MaxLength="10" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstPassword" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="nchar" MaxLength="1" />
+          <Property Name="Permission" Type="nchar" MaxLength="1" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_CourseAssign_msCourse">
+          <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
+          <End Role="CourseAssign" Type="Self.CourseAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CourseAssign">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseAssign_msDepartment">
+          <End Role="MSDepartment" Type="Self.MSDepartment" Multiplicity="0..1" />
+          <End Role="CourseAssign" Type="Self.CourseAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MSDepartment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CourseAssign">
+              <PropertyRef Name="DeptID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseAssign_msDivision">
+          <End Role="MSDivision" Type="Self.MSDivision" Multiplicity="0..1" />
+          <End Role="CourseAssign" Type="Self.CourseAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MSDivision">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CourseAssign">
+              <PropertyRef Name="DivID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseAssign_msPosition">
+          <End Role="MSPosition" Type="Self.MSPosition" Multiplicity="0..1" />
+          <End Role="CourseAssign" Type="Self.CourseAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MSPosition">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CourseAssign">
+              <PropertyRef Name="PositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseAssign_UserManagement">
+          <End Role="UserManagement" Type="Self.UserManagement" Multiplicity="0..1" />
+          <End Role="CourseAssign" Type="Self.CourseAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserManagement">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="CourseAssign">
+              <PropertyRef Name="EmpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_msDepartment">
+          <End Role="MSDepartment" Type="Self.MSDepartment" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MSDepartment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="DeptID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_msDivision">
+          <End Role="MSDivision" Type="Self.MSDivision" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MSDivision">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="DivID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExamAnswer_Question">
+          <End Role="Question" Type="Self.Question" Multiplicity="0..1" />
+          <End Role="ExamAnswer" Type="Self.ExamAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="ExamAnswer">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Examination_msAnswerType">
+          <End Role="MSAnswerType" Type="Self.MSAnswerType" Multiplicity="0..1" />
+          <End Role="ExaminationDetail" Type="Self.ExaminationDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MSAnswerType">
+              <PropertyRef Name="AnsTypeID" />
+            </Principal>
+            <Dependent Role="ExaminationDetail">
+              <PropertyRef Name="AnsTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_msCourse_msCategory">
+          <End Role="MSCategory" Type="Self.MSCategory" Multiplicity="0..1" />
+          <End Role="Course" Type="Self.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MSCategory">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_msCourse_msCourseType">
+          <End Role="MSCourseLocation" Type="Self.MSCourseLocation" Multiplicity="0..1" />
+          <End Role="Course" Type="Self.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MSCourseLocation">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="CourseLocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_msDivision_msDepartment">
+          <End Role="MSDepartment" Type="Self.MSDepartment" Multiplicity="0..1" />
+          <End Role="MSDivision" Type="Self.MSDivision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MSDepartment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MSDivision">
+              <PropertyRef Name="DeptID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_msPosition_msDivision">
+          <End Role="MSDivision" Type="Self.MSDivision" Multiplicity="0..1" />
+          <End Role="MSPosition" Type="Self.MSPosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MSDivision">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MSPosition">
+              <PropertyRef Name="DivID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Question_Examination">
+          <End Role="ExaminationDetail" Type="Self.ExaminationDetail" Multiplicity="0..1" />
+          <End Role="Question" Type="Self.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExaminationDetail">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="ExamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserHistorical_UserManagement">
+          <End Role="UserManagement" Type="Self.UserManagement" Multiplicity="0..1" />
+          <End Role="UserHistorical" Type="Self.UserHistorical" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserManagement">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserHistorical">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="fnGetMultiLang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pKey" Type="nvarchar" Mode="In" />
+          <Parameter Name="pTableName" Type="nvarchar" Mode="In" />
+          <Parameter Name="pColumnName" Type="nvarchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="LID" Type="int" Nullable="false" />
+                <Property Name="IDRef" Type="nvarchar" MaxLength="10" Nullable="false" />
+                <Property Name="TableName" Type="nvarchar" MaxLength="50" />
+                <Property Name="ColumnName" Type="nvarchar" MaxLength="50" />
+                <Property Name="L1" Type="nvarchar(max)" />
+                <Property Name="L2" Type="nvarchar(max)" />
+                <Property Name="L3" Type="nvarchar(max)" />
+                <Property Name="L4" Type="nvarchar(max)" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="NG5ModelStoreContainer">
+          <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CourseAssign" EntityType="Self.CourseAssign" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CourseContent" EntityType="Self.CourseContent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CourseExam" EntityType="Self.CourseExam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CourseExamSetting" EntityType="Self.CourseExamSetting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CourseList" EntityType="Self.CourseList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Evaluation" EntityType="Self.Evaluation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExamAnswer" EntityType="Self.ExamAnswer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Examination" EntityType="Self.Examination" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExaminationDetail" EntityType="Self.ExaminationDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MediaStorage" EntityType="Self.MediaStorage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MSAnswerType" EntityType="Self.MSAnswerType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MSCategory" EntityType="Self.MSCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MSContentType" EntityType="Self.MSContentType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MSCourseLocation" EntityType="Self.MSCourseLocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MSCourseSort" EntityType="Self.MSCourseSort" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MSCourseType" EntityType="Self.MSCourseType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MSDataLanguage" EntityType="Self.MSDataLanguage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MSDepartment" EntityType="Self.MSDepartment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MSDivision" EntityType="Self.MSDivision" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MSExamLevel" EntityType="Self.MSExamLevel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MSExamType" EntityType="Self.MSExamType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MSMediaType" EntityType="Self.MSMediaType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MSPosition" EntityType="Self.MSPosition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MSProgressStatus" EntityType="Self.MSProgressStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MSWorkExperience" EntityType="Self.MSWorkExperience" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TextResource" EntityType="Self.TextResource" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserHistorical" EntityType="Self.UserHistorical" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserManagement" EntityType="Self.UserManagement" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CourseAssign_msCourse" Association="Self.FK_CourseAssign_msCourse">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="CourseAssign" EntitySet="CourseAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseAssign_msDepartment" Association="Self.FK_CourseAssign_msDepartment">
+            <End Role="MSDepartment" EntitySet="MSDepartment" />
+            <End Role="CourseAssign" EntitySet="CourseAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseAssign_msDivision" Association="Self.FK_CourseAssign_msDivision">
+            <End Role="MSDivision" EntitySet="MSDivision" />
+            <End Role="CourseAssign" EntitySet="CourseAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseAssign_msPosition" Association="Self.FK_CourseAssign_msPosition">
+            <End Role="MSPosition" EntitySet="MSPosition" />
+            <End Role="CourseAssign" EntitySet="CourseAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseAssign_UserManagement" Association="Self.FK_CourseAssign_UserManagement">
+            <End Role="UserManagement" EntitySet="UserManagement" />
+            <End Role="CourseAssign" EntitySet="CourseAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_msDepartment" Association="Self.FK_Employee_msDepartment">
+            <End Role="MSDepartment" EntitySet="MSDepartment" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_msDivision" Association="Self.FK_Employee_msDivision">
+            <End Role="MSDivision" EntitySet="MSDivision" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExamAnswer_Question" Association="Self.FK_ExamAnswer_Question">
+            <End Role="Question" EntitySet="Question" />
+            <End Role="ExamAnswer" EntitySet="ExamAnswer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Examination_msAnswerType" Association="Self.FK_Examination_msAnswerType">
+            <End Role="MSAnswerType" EntitySet="MSAnswerType" />
+            <End Role="ExaminationDetail" EntitySet="ExaminationDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_msCourse_msCategory" Association="Self.FK_msCourse_msCategory">
+            <End Role="MSCategory" EntitySet="MSCategory" />
+            <End Role="Course" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK_msCourse_msCourseType" Association="Self.FK_msCourse_msCourseType">
+            <End Role="MSCourseLocation" EntitySet="MSCourseLocation" />
+            <End Role="Course" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK_msDivision_msDepartment" Association="Self.FK_msDivision_msDepartment">
+            <End Role="MSDepartment" EntitySet="MSDepartment" />
+            <End Role="MSDivision" EntitySet="MSDivision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_msPosition_msDivision" Association="Self.FK_msPosition_msDivision">
+            <End Role="MSDivision" EntitySet="MSDivision" />
+            <End Role="MSPosition" EntitySet="MSPosition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Question_Examination" Association="Self.FK_Question_Examination">
+            <End Role="ExaminationDetail" EntitySet="ExaminationDetail" />
+            <End Role="Question" EntitySet="Question" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserHistorical_UserManagement" Association="Self.FK_UserHistorical_UserManagement">
+            <End Role="UserManagement" EntitySet="UserManagement" />
+            <End Role="UserHistorical" EntitySet="UserHistorical" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NG5Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="NG5Entities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(NG5Model.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(NG5Model.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="fnGetMultiLang" IsComposable="true" ReturnType="Collection(NG5Model.fnGetMultiLang_Result)">
+            <Parameter Name="pKey" Mode="In" Type="String" />
+            <Parameter Name="pTableName" Mode="In" Type="String" />
+            <Parameter Name="pColumnName" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Courses" EntityType="NG5Model.Course" />
+          <EntitySet Name="CourseAssigns" EntityType="NG5Model.CourseAssign" />
+          <EntitySet Name="CourseContents" EntityType="NG5Model.CourseContent" />
+          <EntitySet Name="CourseExams" EntityType="NG5Model.CourseExam" />
+          <EntitySet Name="CourseExamSettings" EntityType="NG5Model.CourseExamSetting" />
+          <EntitySet Name="CourseLists" EntityType="NG5Model.CourseList" />
+          <EntitySet Name="Employees" EntityType="NG5Model.Employee" />
+          <EntitySet Name="Evaluations" EntityType="NG5Model.Evaluation" />
+          <EntitySet Name="ExamAnswers" EntityType="NG5Model.ExamAnswer" />
+          <EntitySet Name="Examinations" EntityType="NG5Model.Examination" />
+          <EntitySet Name="ExaminationDetails" EntityType="NG5Model.ExaminationDetail" />
+          <EntitySet Name="MediaStorages" EntityType="NG5Model.MediaStorage" />
+          <EntitySet Name="MSAnswerTypes" EntityType="NG5Model.MSAnswerType" />
+          <EntitySet Name="MSCategories" EntityType="NG5Model.MSCategory" />
+          <EntitySet Name="MSContentTypes" EntityType="NG5Model.MSContentType" />
+          <EntitySet Name="MSCourseLocations" EntityType="NG5Model.MSCourseLocation" />
+          <EntitySet Name="MSCourseSorts" EntityType="NG5Model.MSCourseSort" />
+          <EntitySet Name="MSCourseTypes" EntityType="NG5Model.MSCourseType" />
+          <EntitySet Name="MSDataLanguages" EntityType="NG5Model.MSDataLanguage" />
+          <EntitySet Name="MSDepartments" EntityType="NG5Model.MSDepartment" />
+          <EntitySet Name="MSDivisions" EntityType="NG5Model.MSDivision" />
+          <EntitySet Name="MSExamLevels" EntityType="NG5Model.MSExamLevel" />
+          <EntitySet Name="MSExamTypes" EntityType="NG5Model.MSExamType" />
+          <EntitySet Name="MSMediaTypes" EntityType="NG5Model.MSMediaType" />
+          <EntitySet Name="MSPositions" EntityType="NG5Model.MSPosition" />
+          <EntitySet Name="MSProgressStatus" EntityType="NG5Model.MSProgressStatu" />
+          <EntitySet Name="MSWorkExperiences" EntityType="NG5Model.MSWorkExperience" />
+          <EntitySet Name="Questions" EntityType="NG5Model.Question" />
+          <EntitySet Name="sysdiagrams" EntityType="NG5Model.sysdiagram" />
+          <EntitySet Name="TextResources" EntityType="NG5Model.TextResource" />
+          <EntitySet Name="UserHistoricals" EntityType="NG5Model.UserHistorical" />
+          <EntitySet Name="UserManagements" EntityType="NG5Model.UserManagement" />
+          <AssociationSet Name="FK_CourseAssign_msCourse" Association="NG5Model.FK_CourseAssign_msCourse">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="CourseAssign" EntitySet="CourseAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_msCourse_msCategory" Association="NG5Model.FK_msCourse_msCategory">
+            <End Role="MSCategory" EntitySet="MSCategories" />
+            <End Role="Course" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_msCourse_msCourseType" Association="NG5Model.FK_msCourse_msCourseType">
+            <End Role="MSCourseLocation" EntitySet="MSCourseLocations" />
+            <End Role="Course" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseAssign_msDepartment" Association="NG5Model.FK_CourseAssign_msDepartment">
+            <End Role="MSDepartment" EntitySet="MSDepartments" />
+            <End Role="CourseAssign" EntitySet="CourseAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseAssign_msDivision" Association="NG5Model.FK_CourseAssign_msDivision">
+            <End Role="MSDivision" EntitySet="MSDivisions" />
+            <End Role="CourseAssign" EntitySet="CourseAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseAssign_msPosition" Association="NG5Model.FK_CourseAssign_msPosition">
+            <End Role="MSPosition" EntitySet="MSPositions" />
+            <End Role="CourseAssign" EntitySet="CourseAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseAssign_UserManagement" Association="NG5Model.FK_CourseAssign_UserManagement">
+            <End Role="UserManagement" EntitySet="UserManagements" />
+            <End Role="CourseAssign" EntitySet="CourseAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_msDepartment" Association="NG5Model.FK_Employee_msDepartment">
+            <End Role="MSDepartment" EntitySet="MSDepartments" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_msDivision" Association="NG5Model.FK_Employee_msDivision">
+            <End Role="MSDivision" EntitySet="MSDivisions" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExamAnswer_Question" Association="NG5Model.FK_ExamAnswer_Question">
+            <End Role="Question" EntitySet="Questions" />
+            <End Role="ExamAnswer" EntitySet="ExamAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Examination_msAnswerType" Association="NG5Model.FK_Examination_msAnswerType">
+            <End Role="MSAnswerType" EntitySet="MSAnswerTypes" />
+            <End Role="ExaminationDetail" EntitySet="ExaminationDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Question_Examination" Association="NG5Model.FK_Question_Examination">
+            <End Role="ExaminationDetail" EntitySet="ExaminationDetails" />
+            <End Role="Question" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_msDivision_msDepartment" Association="NG5Model.FK_msDivision_msDepartment">
+            <End Role="MSDepartment" EntitySet="MSDepartments" />
+            <End Role="MSDivision" EntitySet="MSDivisions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_msPosition_msDivision" Association="NG5Model.FK_msPosition_msDivision">
+            <End Role="MSDivision" EntitySet="MSDivisions" />
+            <End Role="MSPosition" EntitySet="MSPositions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserHistorical_UserManagement" Association="NG5Model.FK_UserHistorical_UserManagement">
+            <End Role="UserManagement" EntitySet="UserManagements" />
+            <End Role="UserHistorical" EntitySet="UserHistoricals" />
+          </AssociationSet>
+          </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="fnGetMultiLang_Result">
+          <Property Type="Int32" Name="LID" Nullable="false" />
+          <Property Type="String" Name="IDRef" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="TableName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ColumnName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="L1" Nullable="true" />
+          <Property Type="String" Name="L2" Nullable="true" />
+          <Property Type="String" Name="L3" Nullable="true" />
+          <Property Type="String" Name="L4" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="CourseLocationID" Type="Int32" />
+          <Property Name="CourseType" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="Name_L1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L3" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L4" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Object_L1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Object_L2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Object_L3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Object_L4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Intro_L1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Intro_L2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Intro_L3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Intro_L4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Target_L1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Target_L2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Target_L3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Target_L4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Criteria_L1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Criteria_L2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Criteria_L3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Criteria_L4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Previous" Type="Int32" />
+          <Property Name="EffDate" Type="DateTime" Precision="3" />
+          <Property Name="ExpDate" Type="DateTime" Precision="3" />
+          <Property Name="CourseImage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CourseAssigns" Relationship="NG5Model.FK_CourseAssign_msCourse" FromRole="Course" ToRole="CourseAssign" />
+          <NavigationProperty Name="MSCategory" Relationship="NG5Model.FK_msCourse_msCategory" FromRole="Course" ToRole="MSCategory" />
+          <NavigationProperty Name="MSCourseLocation" Relationship="NG5Model.FK_msCourse_msCourseType" FromRole="Course" ToRole="MSCourseLocation" />
+        </EntityType>
+        <EntityType Name="CourseAssign">
+          <Key>
+            <PropertyRef Name="AssignID" />
+          </Key>
+          <Property Name="AssignID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseID" Type="Int32" />
+          <Property Name="DeptID" Type="Int32" />
+          <Property Name="DivID" Type="Int32" />
+          <Property Name="PositionID" Type="Int32" />
+          <Property Name="WorkID" Type="Int32" />
+          <Property Name="EmpID" Type="Int32" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Course" Relationship="NG5Model.FK_CourseAssign_msCourse" FromRole="CourseAssign" ToRole="Course" />
+          <NavigationProperty Name="MSDepartment" Relationship="NG5Model.FK_CourseAssign_msDepartment" FromRole="CourseAssign" ToRole="MSDepartment" />
+          <NavigationProperty Name="MSDivision" Relationship="NG5Model.FK_CourseAssign_msDivision" FromRole="CourseAssign" ToRole="MSDivision" />
+          <NavigationProperty Name="MSPosition" Relationship="NG5Model.FK_CourseAssign_msPosition" FromRole="CourseAssign" ToRole="MSPosition" />
+          <NavigationProperty Name="UserManagement" Relationship="NG5Model.FK_CourseAssign_UserManagement" FromRole="CourseAssign" ToRole="UserManagement" />
+        </EntityType>
+        <EntityType Name="CourseContent">
+          <Key>
+            <PropertyRef Name="ContentID" />
+          </Key>
+          <Property Name="ContentID" Type="Int32" Nullable="false" />
+          <Property Name="CourseListID" Type="Int32" />
+          <Property Name="ContentTime" Type="Int32" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="CourseExam">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseExamSetID" Type="Int32" />
+          <Property Name="ExamID" Type="Int32" />
+          <Property Name="QuestionID" Type="Int32" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdateBy" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="CourseExamSetting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseListID" Type="Int32" />
+          <Property Name="ExamTypeID" Type="Int32" />
+          <Property Name="NumberingID" Type="Int32" />
+          <Property Name="ExamTime" Type="Int32" />
+          <Property Name="Criteria" Type="Int32" />
+          <Property Name="QuestionType" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="QuestionQty" Type="Int32" />
+          <Property Name="TotalScore" Type="Double" />
+          <Property Name="BeginnerQty" Type="Int32" />
+          <Property Name="IntermediatesQty" Type="Int32" />
+          <Property Name="ExpertsQty" Type="Int32" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdateBy" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="CourseList">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseID" Type="Int32" />
+          <Property Name="TopicSeq" Type="Int32" />
+          <Property Name="TopicName_L1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TopicName_L2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TopicName_L3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TopicName_L4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ContentID" Type="Int32" />
+          <Property Name="MediaTypeID" Type="Int32" />
+          <Property Name="ExamTypeID" Type="Int32" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="EmpCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName_L1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName_L2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName_L3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName_L4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName_L1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName_L2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName_L3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName_L4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeptID" Type="Int32" />
+          <Property Name="DivID" Type="Int32" />
+          <Property Name="PositionID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartWorkDate" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="MSDepartment" Relationship="NG5Model.FK_Employee_msDepartment" FromRole="Employee" ToRole="MSDepartment" />
+          <NavigationProperty Name="MSDivision" Relationship="NG5Model.FK_Employee_msDivision" FromRole="Employee" ToRole="MSDivision" />
+        </EntityType>
+        <EntityType Name="Evaluation">
+          <Key>
+            <PropertyRef Name="EvaID" />
+          </Key>
+          <Property Name="EvaID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CourseListID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="QuestionQTY" Type="Int32" />
+          <Property Name="AnswerQty" Type="Int32" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="CreateBy" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ExamAnswer">
+          <Key>
+            <PropertyRef Name="AnsID" />
+          </Key>
+          <Property Name="AnsID" Type="Int32" Nullable="false" />
+          <Property Name="QuestionID" Type="Int32" />
+          <Property Name="AnsNo" Type="Int32" />
+          <Property Name="AnsText_L1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AnsText_L2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AnsText_L3" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AnsText_L4" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AnsCorrect" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="AnsKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AnsSensitive" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="AnsPosition" Type="Int32" />
+          <Property Name="AnsScore" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Question" Relationship="NG5Model.FK_ExamAnswer_Question" FromRole="ExamAnswer" ToRole="Question" />
+        </EntityType>
+        <EntityType Name="Examination">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title_L1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Title_L2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Title_L3" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Title_L4" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ExamTypeID" Type="Int32" />
+          <Property Name="CourseListID" Type="Int32" />
+          <Property Name="CreateBy" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ExaminationDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ExamHID" Type="Int32" />
+          <Property Name="QuestionQTY" Type="Int32" />
+          <Property Name="QuestionRandom" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="AnswerQTY" Type="Int32" />
+          <Property Name="AnswerRandom" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="AnsTypeID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ExamTime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="PassCriteria" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ActiveStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="TotalScore" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CreateBy" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="MSAnswerType" Relationship="NG5Model.FK_Examination_msAnswerType" FromRole="ExaminationDetail" ToRole="MSAnswerType" />
+          <NavigationProperty Name="Questions" Relationship="NG5Model.FK_Question_Examination" FromRole="ExaminationDetail" ToRole="Question" />
+        </EntityType>
+        <EntityType Name="MediaStorage">
+          <Key>
+            <PropertyRef Name="MediaID" />
+          </Key>
+          <Property Name="MediaID" Type="Int32" Nullable="false" />
+          <Property Name="MediaType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Path" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RefProcessCode" Type="Int32" />
+          <Property Name="RefType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MSAnswerType">
+          <Key>
+            <PropertyRef Name="AnsTypeID" />
+          </Key>
+          <Property Name="AnsTypeID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="AnsTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ExaminationDetails" Relationship="NG5Model.FK_Examination_msAnswerType" FromRole="MSAnswerType" ToRole="ExaminationDetail" />
+        </EntityType>
+        <EntityType Name="MSCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_L1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description_L1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Description_L2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Description_L3" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Description_L4" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="EffDate" Type="DateTime" Precision="3" />
+          <Property Name="ExpDate" Type="DateTime" Precision="3" />
+          <Property Name="Priority" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Icon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Courses" Relationship="NG5Model.FK_msCourse_msCategory" FromRole="MSCategory" ToRole="Course" />
+        </EntityType>
+        <EntityType Name="MSContentType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name_L1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MSCourseLocation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_L1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Courses" Relationship="NG5Model.FK_msCourse_msCourseType" FromRole="MSCourseLocation" ToRole="Course" />
+        </EntityType>
+        <EntityType Name="MSCourseSort">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name_L1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MSCourseType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_L1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MSDataLanguage">
+          <Key>
+            <PropertyRef Name="LID" />
+          </Key>
+          <Property Name="LID" Type="Int32" Nullable="false" />
+          <Property Name="IDRef" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TableName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ColumnName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="L1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="L2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="L3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="L4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MSDepartment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_L1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CourseAssigns" Relationship="NG5Model.FK_CourseAssign_msDepartment" FromRole="MSDepartment" ToRole="CourseAssign" />
+          <NavigationProperty Name="Employees" Relationship="NG5Model.FK_Employee_msDepartment" FromRole="MSDepartment" ToRole="Employee" />
+          <NavigationProperty Name="MSDivisions" Relationship="NG5Model.FK_msDivision_msDepartment" FromRole="MSDepartment" ToRole="MSDivision" />
+        </EntityType>
+        <EntityType Name="MSDivision">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeptID" Type="Int32" />
+          <Property Name="Name_L1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CourseAssigns" Relationship="NG5Model.FK_CourseAssign_msDivision" FromRole="MSDivision" ToRole="CourseAssign" />
+          <NavigationProperty Name="Employees" Relationship="NG5Model.FK_Employee_msDivision" FromRole="MSDivision" ToRole="Employee" />
+          <NavigationProperty Name="MSDepartment" Relationship="NG5Model.FK_msDivision_msDepartment" FromRole="MSDivision" ToRole="MSDepartment" />
+          <NavigationProperty Name="MSPositions" Relationship="NG5Model.FK_msPosition_msDivision" FromRole="MSDivision" ToRole="MSPosition" />
+        </EntityType>
+        <EntityType Name="MSExamLevel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="Name_L1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MSExamType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_L1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MSMediaType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_L1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MSPosition">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DivID" Type="Int32" />
+          <Property Name="Name_L1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CourseAssigns" Relationship="NG5Model.FK_CourseAssign_msPosition" FromRole="MSPosition" ToRole="CourseAssign" />
+          <NavigationProperty Name="MSDivision" Relationship="NG5Model.FK_msPosition_msDivision" FromRole="MSPosition" ToRole="MSDivision" />
+        </EntityType>
+        <EntityType Name="MSProgressStatu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name_L1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MSWorkExperience">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_L1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_L4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TimeStart" Type="Int32" />
+          <Property Name="TimeStartUnit" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="TimeEnd" Type="Int32" />
+          <Property Name="TimeEndUnit" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="Int32" Nullable="false" />
+          <Property Name="ExamID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="QusNo" Type="Int32" />
+          <Property Name="QusText_L1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="QusText_L2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="QusText_L3" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="QusText_L4" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="QusScore" Type="Double" />
+          <Property Name="QusLevel" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ExamAnswers" Relationship="NG5Model.FK_ExamAnswer_Question" FromRole="Question" ToRole="ExamAnswer" />
+          <NavigationProperty Name="ExaminationDetail" Relationship="NG5Model.FK_Question_Examination" FromRole="Question" ToRole="ExaminationDetail" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TextResource">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Module" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="L1Value" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="L2Value" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="L3Value" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="L4Value" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="UserHistorical">
+          <Key>
+            <PropertyRef Name="UserHisID" />
+          </Key>
+          <Property Name="UserHisID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TopScore" Type="Double" />
+          <Property Name="Score" Type="Double" />
+          <Property Name="CourseListID" Type="Int32" />
+          <Property Name="LearnTime" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="UserManagement" Relationship="NG5Model.FK_UserHistorical_UserManagement" FromRole="UserHistorical" ToRole="UserManagement" />
+        </EntityType>
+        <EntityType Name="UserManagement">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="EmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="Permission" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CourseAssigns" Relationship="NG5Model.FK_CourseAssign_UserManagement" FromRole="UserManagement" ToRole="CourseAssign" />
+          <NavigationProperty Name="UserHistoricals" Relationship="NG5Model.FK_UserHistorical_UserManagement" FromRole="UserManagement" ToRole="UserHistorical" />
+        </EntityType>
+        <Association Name="FK_CourseAssign_msCourse">
+          <End Type="NG5Model.Course" Role="Course" Multiplicity="0..1" />
+          <End Type="NG5Model.CourseAssign" Role="CourseAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CourseAssign">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_msCourse_msCategory">
+          <End Type="NG5Model.MSCategory" Role="MSCategory" Multiplicity="0..1" />
+          <End Type="NG5Model.Course" Role="Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MSCategory">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_msCourse_msCourseType">
+          <End Type="NG5Model.MSCourseLocation" Role="MSCourseLocation" Multiplicity="0..1" />
+          <End Type="NG5Model.Course" Role="Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MSCourseLocation">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="CourseLocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseAssign_msDepartment">
+          <End Type="NG5Model.MSDepartment" Role="MSDepartment" Multiplicity="0..1" />
+          <End Type="NG5Model.CourseAssign" Role="CourseAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MSDepartment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CourseAssign">
+              <PropertyRef Name="DeptID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseAssign_msDivision">
+          <End Type="NG5Model.MSDivision" Role="MSDivision" Multiplicity="0..1" />
+          <End Type="NG5Model.CourseAssign" Role="CourseAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MSDivision">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CourseAssign">
+              <PropertyRef Name="DivID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseAssign_msPosition">
+          <End Type="NG5Model.MSPosition" Role="MSPosition" Multiplicity="0..1" />
+          <End Type="NG5Model.CourseAssign" Role="CourseAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MSPosition">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CourseAssign">
+              <PropertyRef Name="PositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseAssign_UserManagement">
+          <End Type="NG5Model.UserManagement" Role="UserManagement" Multiplicity="0..1" />
+          <End Type="NG5Model.CourseAssign" Role="CourseAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserManagement">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="CourseAssign">
+              <PropertyRef Name="EmpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_msDepartment">
+          <End Type="NG5Model.MSDepartment" Role="MSDepartment" Multiplicity="0..1" />
+          <End Type="NG5Model.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MSDepartment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="DeptID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_msDivision">
+          <End Type="NG5Model.MSDivision" Role="MSDivision" Multiplicity="0..1" />
+          <End Type="NG5Model.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MSDivision">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="DivID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExamAnswer_Question">
+          <End Type="NG5Model.Question" Role="Question" Multiplicity="0..1" />
+          <End Type="NG5Model.ExamAnswer" Role="ExamAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="ExamAnswer">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Examination_msAnswerType">
+          <End Type="NG5Model.MSAnswerType" Role="MSAnswerType" Multiplicity="0..1" />
+          <End Type="NG5Model.ExaminationDetail" Role="ExaminationDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MSAnswerType">
+              <PropertyRef Name="AnsTypeID" />
+            </Principal>
+            <Dependent Role="ExaminationDetail">
+              <PropertyRef Name="AnsTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Question_Examination">
+          <End Type="NG5Model.ExaminationDetail" Role="ExaminationDetail" Multiplicity="0..1" />
+          <End Type="NG5Model.Question" Role="Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExaminationDetail">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="ExamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_msDivision_msDepartment">
+          <End Type="NG5Model.MSDepartment" Role="MSDepartment" Multiplicity="0..1" />
+          <End Type="NG5Model.MSDivision" Role="MSDivision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MSDepartment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MSDivision">
+              <PropertyRef Name="DeptID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_msPosition_msDivision">
+          <End Type="NG5Model.MSDivision" Role="MSDivision" Multiplicity="0..1" />
+          <End Type="NG5Model.MSPosition" Role="MSPosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MSDivision">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MSPosition">
+              <PropertyRef Name="DivID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserHistorical_UserManagement">
+          <End Type="NG5Model.UserManagement" Role="UserManagement" Multiplicity="0..1" />
+          <End Type="NG5Model.UserHistorical" Role="UserHistorical" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserManagement">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserHistorical">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NG5ModelStoreContainer" CdmEntityContainer="NG5Entities">
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="NG5Model.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="NG5Model.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="NG5Model.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="NG5Model.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NG5Model.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="NG5Model.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NG5Model.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="NG5Model.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="NG5Model.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="fnGetMultiLang" FunctionName="NG5Model.Store.fnGetMultiLang">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NG5Model.fnGetMultiLang_Result">
+                <ScalarProperty Name="LID" ColumnName="LID" />
+                <ScalarProperty Name="IDRef" ColumnName="IDRef" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="ColumnName" ColumnName="ColumnName" />
+                <ScalarProperty Name="L1" ColumnName="L1" />
+                <ScalarProperty Name="L2" ColumnName="L2" />
+                <ScalarProperty Name="L3" ColumnName="L3" />
+                <ScalarProperty Name="L4" ColumnName="L4" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="NG5Model.Course">
+              <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CourseImage" ColumnName="CourseImage" />
+                <ScalarProperty Name="ExpDate" ColumnName="ExpDate" />
+                <ScalarProperty Name="EffDate" ColumnName="EffDate" />
+                <ScalarProperty Name="Previous" ColumnName="Previous" />
+                <ScalarProperty Name="Criteria_L4" ColumnName="Criteria_L4" />
+                <ScalarProperty Name="Criteria_L3" ColumnName="Criteria_L3" />
+                <ScalarProperty Name="Criteria_L2" ColumnName="Criteria_L2" />
+                <ScalarProperty Name="Criteria_L1" ColumnName="Criteria_L1" />
+                <ScalarProperty Name="Target_L4" ColumnName="Target_L4" />
+                <ScalarProperty Name="Target_L3" ColumnName="Target_L3" />
+                <ScalarProperty Name="Target_L2" ColumnName="Target_L2" />
+                <ScalarProperty Name="Target_L1" ColumnName="Target_L1" />
+                <ScalarProperty Name="Intro_L4" ColumnName="Intro_L4" />
+                <ScalarProperty Name="Intro_L3" ColumnName="Intro_L3" />
+                <ScalarProperty Name="Intro_L2" ColumnName="Intro_L2" />
+                <ScalarProperty Name="Intro_L1" ColumnName="Intro_L1" />
+                <ScalarProperty Name="Object_L4" ColumnName="Object_L4" />
+                <ScalarProperty Name="Object_L3" ColumnName="Object_L3" />
+                <ScalarProperty Name="Object_L2" ColumnName="Object_L2" />
+                <ScalarProperty Name="Object_L1" ColumnName="Object_L1" />
+                <ScalarProperty Name="Name_L4" ColumnName="Name_L4" />
+                <ScalarProperty Name="Name_L3" ColumnName="Name_L3" />
+                <ScalarProperty Name="Name_L2" ColumnName="Name_L2" />
+                <ScalarProperty Name="Name_L1" ColumnName="Name_L1" />
+                <ScalarProperty Name="CourseType" ColumnName="CourseType" />
+                <ScalarProperty Name="CourseLocationID" ColumnName="CourseLocationID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseAssigns">
+            <EntityTypeMapping TypeName="NG5Model.CourseAssign">
+              <MappingFragment StoreEntitySet="CourseAssign">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+                <ScalarProperty Name="WorkID" ColumnName="WorkID" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="DivID" ColumnName="DivID" />
+                <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="AssignID" ColumnName="AssignID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseContents">
+            <EntityTypeMapping TypeName="NG5Model.CourseContent">
+              <MappingFragment StoreEntitySet="CourseContent">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ContentTime" ColumnName="ContentTime" />
+                <ScalarProperty Name="CourseListID" ColumnName="CourseListID" />
+                <ScalarProperty Name="ContentID" ColumnName="ContentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseExams">
+            <EntityTypeMapping TypeName="NG5Model.CourseExam">
+              <MappingFragment StoreEntitySet="CourseExam">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="ExamID" ColumnName="ExamID" />
+                <ScalarProperty Name="CourseExamSetID" ColumnName="CourseExamSetID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseExamSettings">
+            <EntityTypeMapping TypeName="NG5Model.CourseExamSetting">
+              <MappingFragment StoreEntitySet="CourseExamSetting">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="ExpertsQty" ColumnName="ExpertsQty" />
+                <ScalarProperty Name="IntermediatesQty" ColumnName="IntermediatesQty" />
+                <ScalarProperty Name="BeginnerQty" ColumnName="BeginnerQty" />
+                <ScalarProperty Name="TotalScore" ColumnName="TotalScore" />
+                <ScalarProperty Name="QuestionQty" ColumnName="QuestionQty" />
+                <ScalarProperty Name="QuestionType" ColumnName="QuestionType" />
+                <ScalarProperty Name="Criteria" ColumnName="Criteria" />
+                <ScalarProperty Name="ExamTime" ColumnName="ExamTime" />
+                <ScalarProperty Name="NumberingID" ColumnName="NumberingID" />
+                <ScalarProperty Name="ExamTypeID" ColumnName="ExamTypeID" />
+                <ScalarProperty Name="CourseListID" ColumnName="CourseListID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseLists">
+            <EntityTypeMapping TypeName="NG5Model.CourseList">
+              <MappingFragment StoreEntitySet="CourseList">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ExamTypeID" ColumnName="ExamTypeID" />
+                <ScalarProperty Name="MediaTypeID" ColumnName="MediaTypeID" />
+                <ScalarProperty Name="ContentID" ColumnName="ContentID" />
+                <ScalarProperty Name="TopicName_L4" ColumnName="TopicName_L4" />
+                <ScalarProperty Name="TopicName_L3" ColumnName="TopicName_L3" />
+                <ScalarProperty Name="TopicName_L2" ColumnName="TopicName_L2" />
+                <ScalarProperty Name="TopicName_L1" ColumnName="TopicName_L1" />
+                <ScalarProperty Name="TopicSeq" ColumnName="TopicSeq" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="NG5Model.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="StartWorkDate" ColumnName="StartWorkDate" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="DivID" ColumnName="DivID" />
+                <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+                <ScalarProperty Name="LastName_L4" ColumnName="LastName_L4" />
+                <ScalarProperty Name="LastName_L3" ColumnName="LastName_L3" />
+                <ScalarProperty Name="LastName_L2" ColumnName="LastName_L2" />
+                <ScalarProperty Name="LastName_L1" ColumnName="LastName_L1" />
+                <ScalarProperty Name="FirstName_L4" ColumnName="FirstName_L4" />
+                <ScalarProperty Name="FirstName_L3" ColumnName="FirstName_L3" />
+                <ScalarProperty Name="FirstName_L2" ColumnName="FirstName_L2" />
+                <ScalarProperty Name="FirstName_L1" ColumnName="FirstName_L1" />
+                <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Evaluations">
+            <EntityTypeMapping TypeName="NG5Model.Evaluation">
+              <MappingFragment StoreEntitySet="Evaluation">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AnswerQty" ColumnName="AnswerQty" />
+                <ScalarProperty Name="QuestionQTY" ColumnName="QuestionQTY" />
+                <ScalarProperty Name="CourseListID" ColumnName="CourseListID" />
+                <ScalarProperty Name="EvaID" ColumnName="EvaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExamAnswers">
+            <EntityTypeMapping TypeName="NG5Model.ExamAnswer">
+              <MappingFragment StoreEntitySet="ExamAnswer">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AnsScore" ColumnName="AnsScore" />
+                <ScalarProperty Name="AnsPosition" ColumnName="AnsPosition" />
+                <ScalarProperty Name="AnsSensitive" ColumnName="AnsSensitive" />
+                <ScalarProperty Name="AnsKey" ColumnName="AnsKey" />
+                <ScalarProperty Name="AnsCorrect" ColumnName="AnsCorrect" />
+                <ScalarProperty Name="AnsText_L4" ColumnName="AnsText_L4" />
+                <ScalarProperty Name="AnsText_L3" ColumnName="AnsText_L3" />
+                <ScalarProperty Name="AnsText_L2" ColumnName="AnsText_L2" />
+                <ScalarProperty Name="AnsText_L1" ColumnName="AnsText_L1" />
+                <ScalarProperty Name="AnsNo" ColumnName="AnsNo" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="AnsID" ColumnName="AnsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Examinations">
+            <EntityTypeMapping TypeName="NG5Model.Examination">
+              <MappingFragment StoreEntitySet="Examination">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CourseListID" ColumnName="CourseListID" />
+                <ScalarProperty Name="ExamTypeID" ColumnName="ExamTypeID" />
+                <ScalarProperty Name="Title_L4" ColumnName="Title_L4" />
+                <ScalarProperty Name="Title_L3" ColumnName="Title_L3" />
+                <ScalarProperty Name="Title_L2" ColumnName="Title_L2" />
+                <ScalarProperty Name="Title_L1" ColumnName="Title_L1" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExaminationDetails">
+            <EntityTypeMapping TypeName="NG5Model.ExaminationDetail">
+              <MappingFragment StoreEntitySet="ExaminationDetail">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="TotalScore" ColumnName="TotalScore" />
+                <ScalarProperty Name="ActiveStatus" ColumnName="ActiveStatus" />
+                <ScalarProperty Name="PassCriteria" ColumnName="PassCriteria" />
+                <ScalarProperty Name="ExamTime" ColumnName="ExamTime" />
+                <ScalarProperty Name="AnsTypeID" ColumnName="AnsTypeID" />
+                <ScalarProperty Name="AnswerRandom" ColumnName="AnswerRandom" />
+                <ScalarProperty Name="AnswerQTY" ColumnName="AnswerQTY" />
+                <ScalarProperty Name="QuestionRandom" ColumnName="QuestionRandom" />
+                <ScalarProperty Name="QuestionQTY" ColumnName="QuestionQTY" />
+                <ScalarProperty Name="ExamHID" ColumnName="ExamHID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MediaStorages">
+            <EntityTypeMapping TypeName="NG5Model.MediaStorage">
+              <MappingFragment StoreEntitySet="MediaStorage">
+                <ScalarProperty Name="RefType" ColumnName="RefType" />
+                <ScalarProperty Name="RefProcessCode" ColumnName="RefProcessCode" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="MediaType" ColumnName="MediaType" />
+                <ScalarProperty Name="MediaID" ColumnName="MediaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSAnswerTypes">
+            <EntityTypeMapping TypeName="NG5Model.MSAnswerType">
+              <MappingFragment StoreEntitySet="MSAnswerType">
+                <ScalarProperty Name="AnsTypeName" ColumnName="AnsTypeName" />
+                <ScalarProperty Name="AnsTypeID" ColumnName="AnsTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSCategories">
+            <EntityTypeMapping TypeName="NG5Model.MSCategory">
+              <MappingFragment StoreEntitySet="MSCategory">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="ExpDate" ColumnName="ExpDate" />
+                <ScalarProperty Name="EffDate" ColumnName="EffDate" />
+                <ScalarProperty Name="Description_L4" ColumnName="Description_L4" />
+                <ScalarProperty Name="Description_L3" ColumnName="Description_L3" />
+                <ScalarProperty Name="Description_L2" ColumnName="Description_L2" />
+                <ScalarProperty Name="Description_L1" ColumnName="Description_L1" />
+                <ScalarProperty Name="Name_L4" ColumnName="Name_L4" />
+                <ScalarProperty Name="Name_L3" ColumnName="Name_L3" />
+                <ScalarProperty Name="Name_L2" ColumnName="Name_L2" />
+                <ScalarProperty Name="Name_L1" ColumnName="Name_L1" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSContentTypes">
+            <EntityTypeMapping TypeName="NG5Model.MSContentType">
+              <MappingFragment StoreEntitySet="MSContentType">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name_L4" ColumnName="Name_L4" />
+                <ScalarProperty Name="Name_L3" ColumnName="Name_L3" />
+                <ScalarProperty Name="Name_L2" ColumnName="Name_L2" />
+                <ScalarProperty Name="Name_L1" ColumnName="Name_L1" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSCourseLocations">
+            <EntityTypeMapping TypeName="NG5Model.MSCourseLocation">
+              <MappingFragment StoreEntitySet="MSCourseLocation">
+                <ScalarProperty Name="Name_L4" ColumnName="Name_L4" />
+                <ScalarProperty Name="Name_L3" ColumnName="Name_L3" />
+                <ScalarProperty Name="Name_L2" ColumnName="Name_L2" />
+                <ScalarProperty Name="Name_L1" ColumnName="Name_L1" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSCourseSorts">
+            <EntityTypeMapping TypeName="NG5Model.MSCourseSort">
+              <MappingFragment StoreEntitySet="MSCourseSort">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name_L4" ColumnName="Name_L4" />
+                <ScalarProperty Name="Name_L3" ColumnName="Name_L3" />
+                <ScalarProperty Name="Name_L2" ColumnName="Name_L2" />
+                <ScalarProperty Name="Name_L1" ColumnName="Name_L1" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSCourseTypes">
+            <EntityTypeMapping TypeName="NG5Model.MSCourseType">
+              <MappingFragment StoreEntitySet="MSCourseType">
+                <ScalarProperty Name="Name_L4" ColumnName="Name_L4" />
+                <ScalarProperty Name="Name_L3" ColumnName="Name_L3" />
+                <ScalarProperty Name="Name_L2" ColumnName="Name_L2" />
+                <ScalarProperty Name="Name_L1" ColumnName="Name_L1" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSDataLanguages">
+            <EntityTypeMapping TypeName="NG5Model.MSDataLanguage">
+              <MappingFragment StoreEntitySet="MSDataLanguage">
+                <ScalarProperty Name="L4" ColumnName="L4" />
+                <ScalarProperty Name="L3" ColumnName="L3" />
+                <ScalarProperty Name="L2" ColumnName="L2" />
+                <ScalarProperty Name="L1" ColumnName="L1" />
+                <ScalarProperty Name="ColumnName" ColumnName="ColumnName" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="IDRef" ColumnName="IDRef" />
+                <ScalarProperty Name="LID" ColumnName="LID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSDepartments">
+            <EntityTypeMapping TypeName="NG5Model.MSDepartment">
+              <MappingFragment StoreEntitySet="MSDepartment">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name_L4" ColumnName="Name_L4" />
+                <ScalarProperty Name="Name_L3" ColumnName="Name_L3" />
+                <ScalarProperty Name="Name_L2" ColumnName="Name_L2" />
+                <ScalarProperty Name="Name_L1" ColumnName="Name_L1" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSDivisions">
+            <EntityTypeMapping TypeName="NG5Model.MSDivision">
+              <MappingFragment StoreEntitySet="MSDivision">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name_L4" ColumnName="Name_L4" />
+                <ScalarProperty Name="Name_L3" ColumnName="Name_L3" />
+                <ScalarProperty Name="Name_L2" ColumnName="Name_L2" />
+                <ScalarProperty Name="Name_L1" ColumnName="Name_L1" />
+                <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSExamLevels">
+            <EntityTypeMapping TypeName="NG5Model.MSExamLevel">
+              <MappingFragment StoreEntitySet="MSExamLevel">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name_L4" ColumnName="Name_L4" />
+                <ScalarProperty Name="Name_L3" ColumnName="Name_L3" />
+                <ScalarProperty Name="Name_L2" ColumnName="Name_L2" />
+                <ScalarProperty Name="Name_L1" ColumnName="Name_L1" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSExamTypes">
+            <EntityTypeMapping TypeName="NG5Model.MSExamType">
+              <MappingFragment StoreEntitySet="MSExamType">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name_L4" ColumnName="Name_L4" />
+                <ScalarProperty Name="Name_L3" ColumnName="Name_L3" />
+                <ScalarProperty Name="Name_L2" ColumnName="Name_L2" />
+                <ScalarProperty Name="Name_L1" ColumnName="Name_L1" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSMediaTypes">
+            <EntityTypeMapping TypeName="NG5Model.MSMediaType">
+              <MappingFragment StoreEntitySet="MSMediaType">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name_L4" ColumnName="Name_L4" />
+                <ScalarProperty Name="Name_L3" ColumnName="Name_L3" />
+                <ScalarProperty Name="Name_L2" ColumnName="Name_L2" />
+                <ScalarProperty Name="Name_L1" ColumnName="Name_L1" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSPositions">
+            <EntityTypeMapping TypeName="NG5Model.MSPosition">
+              <MappingFragment StoreEntitySet="MSPosition">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name_L4" ColumnName="Name_L4" />
+                <ScalarProperty Name="Name_L3" ColumnName="Name_L3" />
+                <ScalarProperty Name="Name_L2" ColumnName="Name_L2" />
+                <ScalarProperty Name="Name_L1" ColumnName="Name_L1" />
+                <ScalarProperty Name="DivID" ColumnName="DivID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSProgressStatus">
+            <EntityTypeMapping TypeName="NG5Model.MSProgressStatu">
+              <MappingFragment StoreEntitySet="MSProgressStatus">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name_L4" ColumnName="Name_L4" />
+                <ScalarProperty Name="Name_L3" ColumnName="Name_L3" />
+                <ScalarProperty Name="Name_L2" ColumnName="Name_L2" />
+                <ScalarProperty Name="Name_L1" ColumnName="Name_L1" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSWorkExperiences">
+            <EntityTypeMapping TypeName="NG5Model.MSWorkExperience">
+              <MappingFragment StoreEntitySet="MSWorkExperience">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="TimeEndUnit" ColumnName="TimeEndUnit" />
+                <ScalarProperty Name="TimeEnd" ColumnName="TimeEnd" />
+                <ScalarProperty Name="TimeStartUnit" ColumnName="TimeStartUnit" />
+                <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />
+                <ScalarProperty Name="Name_L4" ColumnName="Name_L4" />
+                <ScalarProperty Name="Name_L3" ColumnName="Name_L3" />
+                <ScalarProperty Name="Name_L2" ColumnName="Name_L2" />
+                <ScalarProperty Name="Name_L1" ColumnName="Name_L1" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questions">
+            <EntityTypeMapping TypeName="NG5Model.Question">
+              <MappingFragment StoreEntitySet="Question">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="QusLevel" ColumnName="QusLevel" />
+                <ScalarProperty Name="QusScore" ColumnName="QusScore" />
+                <ScalarProperty Name="QusText_L4" ColumnName="QusText_L4" />
+                <ScalarProperty Name="QusText_L3" ColumnName="QusText_L3" />
+                <ScalarProperty Name="QusText_L2" ColumnName="QusText_L2" />
+                <ScalarProperty Name="QusText_L1" ColumnName="QusText_L1" />
+                <ScalarProperty Name="QusNo" ColumnName="QusNo" />
+                <ScalarProperty Name="ExamID" ColumnName="ExamID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="NG5Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TextResources">
+            <EntityTypeMapping TypeName="NG5Model.TextResource">
+              <MappingFragment StoreEntitySet="TextResource">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="L4Value" ColumnName="L4Value" />
+                <ScalarProperty Name="L3Value" ColumnName="L3Value" />
+                <ScalarProperty Name="L2Value" ColumnName="L2Value" />
+                <ScalarProperty Name="L1Value" ColumnName="L1Value" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Module" ColumnName="Module" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserHistoricals">
+            <EntityTypeMapping TypeName="NG5Model.UserHistorical">
+              <MappingFragment StoreEntitySet="UserHistorical">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LearnTime" ColumnName="LearnTime" />
+                <ScalarProperty Name="CourseListID" ColumnName="CourseListID" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="TopScore" ColumnName="TopScore" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserHisID" ColumnName="UserHisID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserManagements">
+            <EntityTypeMapping TypeName="NG5Model.UserManagement">
+              <MappingFragment StoreEntitySet="UserManagement">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="Permission" ColumnName="Permission" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FirstPassword" ColumnName="FirstPassword" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

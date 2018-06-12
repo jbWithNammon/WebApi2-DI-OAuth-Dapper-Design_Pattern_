@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F45BF439-BD05-4BEF-B004-BC17F0F16D45}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ESN.Bll</RootNamespace>
+    <AssemblyName>ESN.Bll</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Implements\DepartmentBLL.cs" />
+    <Compile Include="Implements\DivisionBLL.cs" />
+    <Compile Include="Implements\EmployeeBLL.cs" />
+    <Compile Include="Implements\ExaminationBLL.cs" />
+    <Compile Include="Implements\CategoryManagementBLL.cs" />
+    <Compile Include="Implements\CourseBLL.cs" />
+    <Compile Include="Implements\CourseContentBLL.cs" />
+    <Compile Include="Implements\CourseListBLL.cs" />
+    <Compile Include="Implements\CustomerBLL.cs" />
+    <Compile Include="Implements\MediaTypeBLL.cs" />
+    <Compile Include="Implements\PositionBLL.cs" />
+    <Compile Include="Implements\ProductBLL.cs" />
+    <Compile Include="Implements\WorkExperienceBLL.cs" />
+    <Compile Include="Interfaces\IDepartmentBLL.cs" />
+    <Compile Include="Interfaces\IDivisionBLL.cs" />
+    <Compile Include="Interfaces\IEmployeeBLL.cs" />
+    <Compile Include="Interfaces\IExaminationBLL.cs" />
+    <Compile Include="Interfaces\ICategoryManagementBLL.cs" />
+    <Compile Include="Interfaces\ICourseBLL.cs" />
+    <Compile Include="Interfaces\ICourseContentBLL.cs" />
+    <Compile Include="Interfaces\ICourseListBLL.cs" />
+    <Compile Include="Interfaces\ICustomerBLL.cs" />
+    <Compile Include="Interfaces\IMediaTypeBLL.cs" />
+    <Compile Include="Interfaces\IPositionBLL.cs" />
+    <Compile Include="Interfaces\IProductBLL.cs" />
+    <Compile Include="Interfaces\IWorkExperienceBLL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ESN.Dal\ESN.Dal.csproj">
+      <Project>{E9C50CE0-B178-4D1E-A8A5-A90713083F5F}</Project>
+      <Name>ESN.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ESN.Model\ESN.Model.csproj">
+      <Project>{A7B18501-8F40-430E-8DE3-12A0F05E284A}</Project>
+      <Name>ESN.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8eff762267ab4e9dbcddc099dcf12d56" Name="Diagram1" ZoomLevel="78">
+        <EntityTypeShape EntityType="NG5Model.Course" Width="1.5" PointX="5.25" PointY="16.875" />
+        <EntityTypeShape EntityType="NG5Model.CourseAssign" Width="1.5" PointX="7.5" PointY="9.5" />
+        <EntityTypeShape EntityType="NG5Model.CourseContent" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="NG5Model.CourseExam" Width="1.5" PointX="9.75" PointY="6.75" />
+        <EntityTypeShape EntityType="NG5Model.CourseExamSetting" Width="1.5" PointX="9.75" PointY="10.75" />
+        <EntityTypeShape EntityType="NG5Model.CourseList" Width="1.5" PointX="11.75" PointY="6.75" />
+        <EntityTypeShape EntityType="NG5Model.Employee" Width="1.5" PointX="5.25" PointY="5.875" />
+        <EntityTypeShape EntityType="NG5Model.Evaluation" Width="1.5" PointX="11.75" PointY="11.75" />
+        <EntityTypeShape EntityType="NG5Model.ExamAnswer" Width="1.5" PointX="14.5" PointY="1" />
+        <EntityTypeShape EntityType="NG5Model.Examination" Width="1.5" PointX="13.75" PointY="6.75" />
+        <EntityTypeShape EntityType="NG5Model.ExaminationDetail" Width="1.5" PointX="10" PointY="1.125" />
+        <EntityTypeShape EntityType="NG5Model.MediaStorage" Width="1.5" PointX="13.75" PointY="10.75" />
+        <EntityTypeShape EntityType="NG5Model.MSAnswerType" Width="1.5" PointX="7.75" PointY="2.5" />
+        <EntityTypeShape EntityType="NG5Model.MSCategory" Width="1.5" PointX="3" PointY="19.875" />
+        <EntityTypeShape EntityType="NG5Model.MSContentType" Width="1.5" PointX="13.75" PointY="13.75" />
+        <EntityTypeShape EntityType="NG5Model.MSCourseLocation" Width="1.5" PointX="3" PointY="17" />
+        <EntityTypeShape EntityType="NG5Model.MSCourseSort" Width="1.5" PointX="15.75" PointY="6.75" />
+        <EntityTypeShape EntityType="NG5Model.MSCourseType" Width="1.5" PointX="15.75" PointY="9.75" />
+        <EntityTypeShape EntityType="NG5Model.MSDataLanguage" Width="1.5" PointX="9.75" PointY="15.75" />
+        <EntityTypeShape EntityType="NG5Model.MSDepartment" Width="1.5" PointX="0.75" PointY="7.25" />
+        <EntityTypeShape EntityType="NG5Model.MSDivision" Width="1.5" PointX="3" PointY="11.875" />
+        <EntityTypeShape EntityType="NG5Model.MSExamLevel" Width="1.5" PointX="15.75" PointY="12.75" />
+        <EntityTypeShape EntityType="NG5Model.MSExamType" Width="1.5" PointX="15.75" PointY="15.75" />
+        <EntityTypeShape EntityType="NG5Model.MSMediaType" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="NG5Model.MSPosition" Width="1.5" PointX="5.25" PointY="12.125" />
+        <EntityTypeShape EntityType="NG5Model.MSProgressStatu" Width="1.5" PointX="16.75" PointY="3.75" />
+        <EntityTypeShape EntityType="NG5Model.MSWorkExperience" Width="1.5" PointX="11.75" PointY="16.75" />
+        <EntityTypeShape EntityType="NG5Model.Question" Width="1.5" PointX="12.25" PointY="1.25" />
+        <EntityTypeShape EntityType="NG5Model.sysdiagram" Width="1.5" PointX="17.75" PointY="6.75" />
+        <EntityTypeShape EntityType="NG5Model.TextResource" Width="1.5" PointX="17.75" PointY="9.75" />
+        <EntityTypeShape EntityType="NG5Model.UserHistorical" Width="1.5" PointX="7.5" PointY="14.5" />
+        <EntityTypeShape EntityType="NG5Model.UserManagement" Width="1.5" PointX="5.25" PointY="1.5" />
+        <AssociationConnector Association="NG5Model.FK_CourseAssign_msCourse" />
+        <AssociationConnector Association="NG5Model.FK_msCourse_msCategory" />
+        <AssociationConnector Association="NG5Model.FK_msCourse_msCourseType" />
+        <AssociationConnector Association="NG5Model.FK_CourseAssign_msDepartment" />
+        <AssociationConnector Association="NG5Model.FK_CourseAssign_msDivision" />
+        <AssociationConnector Association="NG5Model.FK_CourseAssign_msPosition" />
+        <AssociationConnector Association="NG5Model.FK_CourseAssign_UserManagement" />
+        <AssociationConnector Association="NG5Model.FK_Employee_msDepartment" />
+        <AssociationConnector Association="NG5Model.FK_Employee_msDivision" />
+        <AssociationConnector Association="NG5Model.FK_ExamAnswer_Question" />
+        <AssociationConnector Association="NG5Model.FK_Examination_msAnswerType" />
+        <AssociationConnector Association="NG5Model.FK_Question_Examination" />
+        <AssociationConnector Association="NG5Model.FK_msDivision_msDepartment" />
+        <AssociationConnector Association="NG5Model.FK_msPosition_msDivision" />
+        <AssociationConnector Association="NG5Model.FK_UserHistorical_UserManagement" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
